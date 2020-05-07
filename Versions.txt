@@ -10,3 +10,8 @@ Release Date-2/5/2020
 #Second Basic Version - 
 V.2.0.1
 Added Linked Pages 
+
+#First Stable Release-
+V3.1.1
+Basic Template created except for SMR , Real Madrid and Playlist
+V4 promise they will be updated
