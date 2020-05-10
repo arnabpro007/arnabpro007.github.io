@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Java Section-1</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Java Section-1</span>
+    </nav>
+
+
+    <!--Nav Bar Above -->
+
+    <div class = "container">
+    <h3>About:</h3>
+    <p>This file contains information about the Java-1 module. To get the codes click on the folder icon on the previous page. Here I will only describe some basic informations about those codes.</p>
+
+    <h3>Hello File:</h3>
+    <ul>
+      <li>When running IntelliJ for the first time make sure to create a distinct folder that has the name of the project. In that folder all of your files will be stored and for second time on you don't need to do that IntelliJ will configure that on its own. </li>
+
+      <li>While writing the code keep an eye on the IntelliJ editor it always gives you "hints" regarding your possible errors.</li>
+
+      <li>To define an integer you have to use int and an declaration variable. Similar for string,float,boolean etc.</li>
+
+      <li>System.out.println (sout works in intelliJ) is used to print something in the console.</li>
+
+      <li>Java operators perform an operation on a variable or value. +,-,/,* are four common ones</li>
+
+      <li>If one variable is not being used intelliJ makes that variable name grey and that gives you an idea which variables you are actually using in the function</li>
+
+
+
+
+
+
+
+
+    </ul>
+
+    <h3>Primitive Data</h3>
+    <ul>
+      <li>There are eight primitive data types in Java and they are: <strong>boolean , byte , char, short, int,long, float</strong></li>
+
+      <li>One of the fundamental rule of Java is you can't fool around with primitive data types.</li>
+
+      <li>But as always there is indeed a way out, Java uses the concept of a Wrapper class for all eight primitive types- In the case of an int  we can use <strong>Integer</strong>, and by doing that it gives us ways to perform operations on an <strong>int.</strong></li>
+
+      <li>Integer minimum value = -2147483648 and Integer maximum value = 2147483647</li>
+
+      <li>If you add value to the max value computer  will overflow and reverse the integer , i.e. if you try to get max+1 you will end up with the min. Same happens for the minimum number and it is known as underflow.</li>
+
+      <li>Byte Min = -128 and Byte Max = 127. When you use values in this range you should use byte as it makes the code much faster than the general methods.</li>
+
+      <li>A Byte occupies 8 bits, A short occupies 16 bits, An int occupies 32 bits, Long occupies 64 bit.</li>
+
+      <li>So for this reason if you can get away with byte don't even bother moving to int.</li>
+
+      <li>To define an long we  have to use 'L' at the end.
+          <em>long x = 100L</em></li>
+
+      <li>A quick IntelliJ tip: if you want to mass replace some text select the portion and then <em>Ctrl + R</em>. Then you will get the menu to replace.</li>
+
+
+      <li>Casting means to treat or convert a number from one type to another. <em>byte x = (byte)(12/3)</em></li>
+
+      <li>In general Java automatically decides between long and int so you don't have to worry about that.</li>
+
+      <li>Float and double are used to represent decimal numbers.Java assumes decimal number to be double by default so you might get an error if you use float and double both in your code. Then remember to type cast your variable to be a float.</li>
+
+      <li>As is the case for int and float same is true for float and double, i.e. 5.0f is not equal to 5.0d</li>
+
+      <li>Although double takes up twice the space as float but it is advisable to use double variable because modern computers are build on chip level to work effectively with doubles. So it is much faster and efficient method to use double</li>
+
+      <li>Remember that both float and double are not good for calculation of high precision, BigDecimal is recommended  in those scenarios</li>
+
+      <li>Char is similar to String but you can only use <strong>one</strong> character. Char takes up 16 bits. Char are stored in Unicode standard.</li>
+
+      <li> To print/store unicode character look up to the online unicode  table and find out the index for your character and then define as following  <em>char uni = "\uXXXX"</em>, here XXXX is the unicode index.</li>
+
+      <li>Boolean is a very useful primitive type they are used in pretty much any complex logic structure. They take value true or false.</li>
+
+
+      <li>Most common are long,int and double apart from boolean. It is advisable to not use floats or shorts.</li>
+
+      <li>String is not a primitive type but it enjoys almost all privielege  of a primitive type because it is very user friendly.</li>
+
+      <li>String can be appended using "+" characters. So note that if your variable is a string and you add two of them (say 45.6 +20 ) you'll end up getting 45.620 which is probably not what you were expecting. You need to cast it to double/int.</li>
+
+      <li>If you add a number to a string you will end up getting a string. So be very careful about the String. Even one of them can mess up your calculations</li>
+
+      <li>Strings are immutable when you append/edit a string a new string is  actually  created. A caution is manipulating strings directly is not advisable. Better is to use StringBuffer.</li>
+
+    </ul>
+
+
+    <h3>Operators:</h3>
+    <ul>
+      
+      <li>An operand is a term used to descrbe any object thaat is manipulated by an operator. For example in the statement <em>int myVar = 15+2;</em>  <strong>+ and = are two operators and 15 and 12 are the operands</strong></li>
+
+      <li>An expression is formmed by combining variables,literals,method return values and operators</li>
+
+      <li>Comments are ignored by the computer, it is used by the user to get into details of that code.</li>
+
+      <li>% operator returns remainder. It is called modulus operator.</li>
+
+      <li>Some  of the major abbreviations for operators are, <ul>
+        <li>result ++  is equivalent to result = result+1</li>
+        <li>result +=2 is equivalent to result = result +2</li>
+        <li>result -- is equivalent to result = result-1</li>
+        <li>result *= 10 is equivalent to result = result*10</li>
+
+      </ul></li>
+      <li><strong>If then</strong> statement is the most basic of all the control flow statements. It tells your program to execute certain section of code only if a particular test evaluates to true. This is known as conditional logic.</li>
+
+      <li>Conditional logic uses specific statements  in Java to allow us to check a condition and execute certain code based on whether that condition(the expression) is true or false.</li>
+
+      <li>If statement takes as argument and evaluates t first only then it goes inside the code block. If the statement is evaluated to be false then the computer won't look inside the code block.</li>
+
+      <li>Even if you are passing through the else , still then put an else statement otherwise it becomes very difficult to track down errors. Also use code blocks when you use if-else.</li>
+
+      <li>Some Important Notes:
+        <ul>
+          <li>"==" checks if LHS , RHS are equal</li>
+          <li>">=" stands for greater than equal</li>
+          <li>"<=" stands for less than equal</li>
+          <li>">","<" are greater and lesser respectively</li>
+          <li>"!=" stands for not equals</li>
+          <li>"&&" stands for and</li>
+          <li>"||" stands for or</li>
+
+        </ul>
+
+      </li>
+
+      <li>The ternary operator is a shortcut to assigning one of two values to a variable depending on a given condition</li>
+
+      <li>Example of Ternary Operator: <em>boolean y = x==25?true:false</em>  It will check if x=25 then y is set to be true else false.</li>
+
+      <li>
+        <table cellspacing="1" cellpadding="2" border="1">
+<tbody><tr><th>Precedence</th><th>Operator</th><th>Type</th><th>Associativity</th></tr>
+<tr>
+  <td align="center">15</td>
+  <td align="center">()<br>[]<br>·</td>
+  <td>Parentheses<br>Array subscript<br>Member selection<br></td>
+  <td align="center">Left to Right<p></p></td>
+</tr>
+<tr>
+  <td align="center">14</td>
+  <td align="center">++<br>--</td>
+  <td>Unary post-increment<br>Unary post-decrement</td>
+  <td align="center">Right to left</td>
+</tr>
+ <tr>
+  <td align="center">13</td>
+  <td align="center">++<br>--<br>+<br>-<br>!<br>~<br>( <i>type</i> )</td>
+  <td>Unary pre-increment<br>Unary pre-decrement<br>Unary plus<br>Unary minus<br>Unary logical negation<br>Unary bitwise complement<br>Unary type cast</td>
+  <td align="center">Right to left</td>
+</tr>
+<tr>
+  <td align="center">12</td>
+  <td align="center"> * <br> / <br> % </td>
+  <td>Multiplication<br>Division<br>Modulus</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">11</td>
+  <td align="center">+<br>-<o:p></o:p></td>
+  <td>Addition<br>Subtraction</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">10</td>
+  <td align="center">&lt;&lt;<br>&gt;&gt;<br>&gt;&gt;&gt;</td>
+  <td>Bitwise left shift<br>Bitwise right shift with sign extension<br>Bitwise right shift with zero extension</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">9</td>
+  <td align="center">&lt;<br>&lt;=<br>&gt;<br>&gt;=<br>instanceof</td>
+  <td>Relational less than<br>Relational less than or equal<br>Relational greater than<br>Relational greater than or equal<br>Type comparison (objects only)</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">8</td>
+  <td align="center">==<br>!=</td>
+  <td>Relational is equal to<br>Relational is not equal to</td>
+  <td align="center">Left to right</td>
+</tr>
+ <tr>
+  <td align="center">7</td>
+  <td align="center">&amp;</td>
+  <td>Bitwise AND</td>
+  <td align="center">Left to right</td>
+</tr>
+ <tr>
+  <td align="center">6</td>
+  <td align="center">^</td>
+  <td>Bitwise exclusive OR</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">5</td>
+  <td align="center">|</td>
+  <td>Bitwise inclusive OR</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">4</td>
+  <td align="center">&amp;&amp;</td>
+  <td>Logical AND<p></p>
+  </td>
+  <td align="center">Left to right</td>
+</tr>
+ <tr>
+  <td align="center">3</td>
+  <td align="center">||</td>
+  <td>Logical OR</td>
+  <td align="center">Left to right</td>
+</tr>
+<tr>
+  <td align="center">2</td>
+  <td align="center">? :</td>
+  <td>Ternary conditional</td>
+  <td align="center">Right to left</td>
+</tr>
+<tr>
+  <td align="center">1</td>
+  <td align="center">=<br>+=<br>-=<br>*=<br>/=<br>%=</td>
+  <td>Assignment<br>Addition assignment<br>Subtraction assignment<br>Multiplication assignment<br>Division assignment<br>Modulus assignment</td>
+  <td align="center">Right to left</td>
+</tr>
+</tbody></table>
+
+<p><i>Larger number means higher precedence</i>.</p>
+
+
+
+      </li>
+      
+
+
+
+
+
+
+
+
+
+
+    </ul>
+
+    </div>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
