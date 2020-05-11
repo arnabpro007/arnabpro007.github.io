@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Java Section-2</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Java Section-2</span>
+</nav>
+
+<div class="container">
+		<h3>About:</h3>
+		<p>This file contains information about the Java-2 module. To get the codes click on the folder icon on the previous page. Here I will only describe some basic informations about those codes.</p>
+
+
+		<h3>KeyWords File:</h3>
+		<ul>
+			<li>Java has 50 reserve keywords. We can't name the variables those 50 names. To see the full list of keywords check <a href="https://en.wikipedia.org/wiki/List_of_Java_keywords">here</a></li>
+			<li>Consider the  following piece of code <em>int num = 0;</em> The whole code is a statement and "num=0" is an assignment expression.</li>
+			<li>One important point is you have to use semicolon(;) in order to make a statement valid.</li>
+			<li>We can put multiple statement in one line and seperate them by semicolon (;). Although this is not a good practice, it makes the code unreadable.</li>
+			<li>Another very important under-rated concept is the concept of whitespace and indentation. Use whitespaces plentyfully and proper indentation to make the code readable for the future purpose. Otherwise it gets imossible to understand the logic flow from the code. IntelliJ provides a neat method go to the Code menu and click on the Reformat code then IntelliJ will auto-indent the code.</li>
+			<li>Codeblocks helps us to run a particular chunk of code. If you don't use codeblock Java will consider only the first statement is part of codeblock. So when there is only one statement you don't need to use codeblock but still it is a good practice to do so. It makes the code much clearer.</li>
+			<li>Else-if gives us a lot more control over the code. Theoretically you can use as many else if as you want but I would suggest not to  go for more than 10. If you need more than 10 try to think of some other smart  way to run the code.</li>
+
+			<li>You can define new variable inside code block but you can't access them outside the codeblock. To access a variable outside of the codeblock you have to define it globaly.</li>
+
+			<li>Try to avoid duplicating codes it makes things very difficult. Better to use a method.</li>
+
+
+
+
+
+
+
+		</ul>
+
+
+		<h3>Methods File:</h3>
+		<ul>
+			<li>Before I define what method a big shocker is we were using method all along our static main is itself a method!!!</li>
+
+			<li>We have to define method outside of the main method. We can only call a method inside a method.</li>
+
+			<li>In method we can pass variables as well. But make sure while defining you clearly specify the data type and while calling you follow that convention.</li>
+			<li>Method makes the code neat  and tractable. So one advise is use as  much methods as possible.</li>
+			<li>Also it doesn't really matter if you give variable names as argument or the hardcoded numbers itself but I prefer to use variable name.</li>
+			<li>When you want to return something using your method remember to specify the type of the variable you want to return ,for example if you want to return int variable then your method definition would be something like: <em>public static int Methodname()</em> </li>
+
+			<li>If you specify that you are returning something (i.e. the cases when you are not using the void keyword) you have to return something for each possible paths of the programm. By that I mean if you have say 3 if/else statement for each alternate you must return something.</li>
+
+			<li>Also remember when you are using return keyword the method call will act as a particular instance of a "random" variable.</li>
+
+			<li>In general the method which is of void type is also known as procedure.</li>
+
+			<li>Method Overloading is the process when we use same method name but with different parameters. This gives us a lots of flexibility. Say for example we have two methods both named mean(), one takes input in int another takes input in double so we use essentially one method with two different instances.</li>
+
+
+			<li>So remember when you overload you need to create an unique method signature.Also remember that just changing the return type won't make overloading work. You have to mess around with the parameters.</li>
+
+			<li>One of the most famous method overloading example is the println function!! It is actually made up of 10 different functions.</li>
+
+			
+
+
+		</ul>
+
+
+
+
+
+
+
+
+</div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
