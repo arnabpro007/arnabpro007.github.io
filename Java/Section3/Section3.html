@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Java Section-3</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Java Section-3</span>
+</nav>
+
+<div class="container">
+		<h3>About:</h3>
+		<p>This is the HTML description file of Control Flow statements in Java. For code check the github repo.</p>
+
+		<h3>Switch File:</h3>
+		<ul>
+			<li>Switch is used when you are testing same variable. break is used inside switch statements to prevent the code from going inside same type of loops. Using break properly is very important.</li>
+
+			<li>The last break is optional but best practice is to use it.</li>
+
+			<li>Switch statement can be used for 4 primitive types byte,short,int, char</li>
+
+			<li>But you have JDK 7 or later use can use switch on Strings as well.</li>
+
+			<li>We can chain the case statements inside switch that makes the code a lot simpler.</li>
+
+			
+
+
+
+		</ul>
+
+		<h3>For Loop File</h3>
+		<ul>
+			<li>When we want to run same chunk of code with some particular range of values we will use for loop.</li>
+
+			<li>Idea is for statement will repeatedly loop over a code chunk until some condition is satisfied.</li>
+
+			<li>We have to pass start, end and increment values.</li>
+
+			<li>for(init ; condition ; increment){
+				<br> //Code <br>
+			}</li>
+
+			<li>we can increment by any amount and in any direction we want.</li>
+
+			<li>Be very careful while declaring for loop conditions, it is very common to run into infinite loop which might cause your IDE to crash.</li>
+
+
+
+
+
+
+
+
+
+
+
+		</ul>
+
+		<h3>While Loop File</h3>
+		<ul>
+			<li>We use while when we are not sure how many exact steps our end condition needs.</li>
+
+			<li>While loop also needs an ending condition. A point of caution it is even easier to run into infinte loops in while loops. So beware of that. </li>
+
+			<li>We can also break out of the while loop using a break statement.</li>
+
+			<li>Do-While loop is guaranteed to execute atleast once. Again use the incremet and termination condition very carefully.</li>
+
+			<li>Continue is a very powerful keyword in Java. If you put continue anywhere inside a while loop then the loop will skip that pass and directly move to the next step. Note that this is almost as strong as break keyword.</li>
+
+			<li>Difference between while and do-while is in while we test the condition at top and in do while at the bottom.</li>
+
+			<li>while(condition){
+				<br>//Statements <br>
+			}</li>
+
+			<li>do{
+				<br>// Statements <br>
+			
+			} while(condition); </li>
+
+			
+
+
+		</ul>
+
+		<h3>Parsing Values File</h3>
+		<ul>
+			<li>Parsing methods helps us to convert string into various primitive type.</li>
+
+			<li>Integer.parseInt is used  to parse a string to integer. If the parsing method fails we will get an error. So be very careful while using it.</li>
+
+			<li>Parsing is very useful when we take input as string and then change it to int and perform different calculaions.</li>
+
+			<li>To change string to double pass Double.parseDouble, again be very careful on what argument you pass </li>
+
+			<li>We can also use parse for float, long , short  etc</li>
+
+			
+
+
+
+		</ul>
+
+		<h3>Reading User Input: </h3>
+		<ul>
+			<li>Scanner is a class that allows to read input directly from console. </li>
+			<li>A new instance of scanner: <em>Scanner scanner = new Scanner(System.in);</em></li>
+
+			<li>scanner.nextLine() reads the next line input.</li>
+			<li>Make sure to close scanner once you have finished using it. It releases the extra memory.</li>
+
+			<li>To get an int you have to use scanner.nextInt() , similarly different commands for boolean , byte, short, char etc</li>
+
+			<li>If you are reading int and then a string(nextLine) make sure to put one buffer nextLine otherwise you will get an error ( this error arises from the fact that enter is treated as a line itself).</li>
+
+			<li>We can use hasNextInt to check if the inout is at all an int</li>
+		</ul>
+
+
+
+</div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
