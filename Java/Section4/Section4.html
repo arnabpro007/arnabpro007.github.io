@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Java Section-4</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Java Section-3</span>
+</nav>
+
+<div class="container">
+		<h3>About:</h3>
+		<p>This is the HTML description file of Object Oriented Programming in Java. For code check the github repo.</p>
+
+		<ul>
+			<li>Real world objects has two types of characters behaviour and state.</li>
+			<li>Software object also has state and behaviour. It stores states as fields and behaviours as methods.</li>
+			<li>Think of class as blue print of creating an object.</li>
+			<li>For the starters write public class. It means that any class has access to your class</li>
+			<li>We want to hide internal working of the class from outside.</li>
+			<li>In general make all variables private.</li>
+			<li>We will call the objects to the main class by using <em>Char name = new Char()</em></li>
+			<li>To set values for the fields we need to create a setter.For example if we are looking to set value for a variable model we will use the function setModel(). Also to pin point which data we are talking about we use "this" key word to specify that we are referring to the variable inside that particular class(i.e. here it will be model).</li>
+			<li>Getter on the other hand fetches the value from the class and shows it to the main method.</li>
+			<li>Constructors are used to quick start the getting and setting process. Be very careful while using constructor it is very easy to make false calls. You can overload constructor easily. It helps a lot.</li>
+
+			<li>One cool way to create a constructor is go to Code then to generate and then click on constructor and IntelliJ will ask you to select fields. It will ultimately create a new constructor on its own. Saves a lots of coding time.</li>
+
+			<li>Let's say you have created a class named Animal which contains fields as name,brain,body,size and weight. Now you want to create a class for dogs but you dont want to write those fields all over again. What you should do is create a class for Dog, and addd "extends Animal" at the end of the class declaration and add a constructor and you are all set.</li>
+
+			<li>As you will see super keyword will apear. It refers to the superclass of your class.</li>
+
+			<li>You can also over-ride one method of parent class in the child class. Go to code then to generate then click over-ride you will get a drop down menu to select from.</li>
+
+			<li>If you don't put super JAVA will find the function in your class.</li>
+
+			<li>A class is basically a blueprint for a house, using the blueprint(plans) we can build as many houses as we like based on those plans.</li>
+
+			<li>Each house you build(in other words instantiate using the new operator) is an object also known as an instance.</li>
+
+			<li>Each house you build has an address(a physical location), In other words, if you want to tell someone where you live, you give them your address(perhaps written on a piece of paper). This is known as reference.</li>
+
+			<li> You can copy that reference as many times as you like but there is still just one house. In other words we are copying the paper that has address on it not the house itself.</li>
+
+			<li>We can pass reference as parameters to constructors and methods.</li>
+
+			<li>Keep in mind that in Java you always have references to an object in memory, there is no way to access an object directly everything is done using a reference.</li>
+
+			<li>The keyword super is used to access/call the parent class members(variables and methods)</li>
+
+			<li>The keyword this is used to call the current class members(variables and methods). This is required when we have a parameter with the same name as an instance variable.</li>
+
+			<li>Note that we can use both of them anywhere in a class except static areas(the static block on a static method). Any attempt to do so will lead to compile-time errors.</li>
+
+			<li>The keyword this is commonly used with constructors and setters, and optionally in getters.The keyword super is commonly used with method over-riding, when we call a method with the same name from the parent class.</li>
+
+
+			<li>Use this() to call a constructor from another overloaded constructor in the same class.The call this() can be used only in a constructor, and it must be the first statement in a constructor. It's used with constructor chaining, in other words when one constructor calls another constructor, and helps to reduce duplicated code. </li>
+
+			<li>The only way to call a parent constructor is by calling super(). This calls the parent constructor.</li>
+
+			<li>The JAVA compiler puts a default call to super() if we don't add it, and it is always the no-args super which is inserted by compiler(constructor without arguments).</li>
+
+			<li>The call to super() must be the first statement in each constructor.</li>
+
+			<li>Even Abstract classes have constructors, although you can never instantiate an abstract class using the new keyword.</li>
+
+			<li>An abstract class is still a super class, so it's constructors run when someone makes an instance of a concrete subclass.</li>
+
+			<li>Note: A constructor can have a call to super() or this() but never both.</li>
+
+			<li>Method overloading means providing two or more separate methods in a class with the same name but different parameters.</li>
+
+			<li>Method return type may or may not be different and that allows us to reuse the same method name.</li>
+
+			<li>Overloading is very handy, it reduces duplicated code and we don't have to remember multiple method names.</li>
+
+			<li>Overloading does not have anything to do with polymorphism but JAVA developers ofter refer to overloading as compile time polymorphism. In other words the compiler decided which method  is going to be called based on the method name, return type and argument list.</li>
+
+			<li>Method over-riding means defining a method in a child class that already exists in the parent class with same signature(same name, same arguments)</li>
+
+			<li>By extending the parent class the child class gets all the methods defined in the parent class(those methods are also known as derived methods)</li>
+
+			<li>Method over-riding is also known as Runtime Polymorphism and Dynamic Method dispatch because the method that is going to be called is decided at run time by the JVM</li>
+
+			<li>When we over-ride a method it's recommended to put @Override immediately above the method definition.This is an annotation that the compiler reads and will then show us an error if we don't follow over-riding rules correctly.</li>
+
+			<li>We can't over-ride static methods only instance methods.</li>
+
+			<li>Only inherited methods can be over-ridden, in other words methods can be overridden only in child classes.</li>
+
+			<li>Constructors and private methods cannot be overridden.</li>
+
+			<li>Methods that are final cannot be overridden.</li>
+
+			<li>A subclass can use super.MethodName() to call the super class version of an over-ridden method.</li>
+
+			<li>Method will be considered overridden if we follow these rules: <ul>
+				<li>It must have same name and same arguments</li>
+				<li>Return type can be a subclass of the return type in the parent class</li>
+				<li>It can't have lower access modifier</li>
+				<li>For example if the parent method is protected then using private in the child is not allowed but using public in the child would be allowed.</li>
+
+			</ul></li>
+
+			<li>Static methods are declared using a static method. Static methods can't access instance methods and instance variables directly. They are usually used for operations that do not require any data from an instance of the class (from 'this')</li>
+
+			<li>In static methods we can't use the this keyword. Whenever you see a method that doesnot use instance variables that method should be declared as static method. For example main is a static method and it is called by the JVM when it starts an application.</li>
+
+			<li>Instance methods belong to an instance of a class. To use an instance meethod we have to instantiate the class first by using the new keyword.</li>
+
+			<li>How to determine whether to use Instance or Static Method:
+				<ul>
+					<li>Does it have any fields or instance methods?</li>
+					<li>Yes-> It should probably be an instance method.</li>
+					<li>No -> It should probably be a static method.</li>
+				</ul>
+			</li>
+
+			<li>Static variables are declared by using the keyword static. Static variables also known as static member variables. Every instance of that class shares the same static variable. If changes are made to that variable, all other instances will see the effect of the change.</li>
+
+			<li>Static variables are not used very often but can sometimes be very useful. For example when reading user input using Scanner we will declare scanner as a static variable. That way static methods can access it directly.</li>
+
+			<li>Instance variables don't use the static keyword. Instance variables are also known as fields or member variables. Instance variables belong to an instance of a class.</li>
+
+			<li>Every instance has it's own copy off an instance variable. Every instance can have a different value(state). Instance variables represent the state of an instance.</li>
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+		</ul>
+
+
+
+
+
+
+
+
+
+<div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>		
