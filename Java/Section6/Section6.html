@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Java Section-6</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Java Section-6</span>
+</nav>
+
+<h3>Arrays, Java inbuilt Lists, Autoboxing and Unboxing</h3>
+<p>This is the HTML description file of Object Arrays and Java inbuilt Lists, Autoboxing and unboxing. For code check the github repo.</p>
+    
+<h5>How to create an Array in Java? </h5>
+<p>To create an array in Java we have to use codes of the following kind: 
+    <pre>
+        <code>
+            int[] myintArray = new int[10];
+            myintArray[5] = 10
+        </code>
+    </pre>
+
+    <ul>
+            <li>To use this assignment you just have to remember that the indexing starts from 0.</li>
+            <li>We have to mention the type of elements we want to store in the array , for example here we have selected int type.</li>
+            <li>We also have to mention the array size in the begining.</li>
+    </ul>
+
+        <h6>Alternate Way: </h6>
+        <pre>
+            <code>
+                int[] myintArray = {1,2,3,4,5,6,7,8,9,10};
+            </code>
+        </pre>
+
+
+    </p>
+
+    <h5>How to use Arrays to Average n numbers? (n is defined by the user)</h5>
+    <p>
+        <div class="container bg-dark">
+            <pre>
+                <code class = "text-info">
+    import java.util.Arrays;
+    import java.util.Scanner;
+    
+    public class Average {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter the number of integer you want to average: ");
+            if (scanner.hasNextInt()){
+                int number = scanner.nextInt();
+                if (number>0) {
+                    double[] temporaryArray = new double[number];
+                    for (int i = 0; i < temporaryArray.length; i++) {
+                        System.out.println("Enter the element - " + (i+1) + " : ");
+                        if(scanner.hasNextDouble()){
+                            temporaryArray[i] = scanner.nextDouble();
+                        }else{
+                            System.out.println("I am disappointed with you!");
+                        }
+                    }
+                    double sum = Arrays.stream(temporaryArray).sum();
+                    System.out.println("Average is: " + (sum/number));
+                }else{
+                    System.out.println("You are an advanced idiot who can't follow the rules.");
+                }
+            }else{
+                System.out.println("You are an idiot who can't follow even the simplest of the rules.");
+            }
+    
+    
+        }
+    
+    }
+                </code>
+            </pre>
+
+        </div>
+        
+<h6>Sample Output: </h6>
+<div class="container bg-dark">
+<pre>
+    <code class="text-info">
+Enter the number of integer you want to average: 
+3
+Enter the element - 1 : 
+11.235
+Enter the element - 2 : 
+103.256
+Enter the element - 3 : 
+-998.36
+Average is: -294.623
+
+Process finished with exit code 0
+    </code>
+</pre>
+
+</div>
+
+    </p>
+
+<h5>How to take an array of integers as input from user and return the sorted array?</h5>
+<div class = "container bg-dark">
+<pre>
+<code class="text-info">
+    import java.util.Arrays;
+    import java.util.Scanner;
+    
+    
+    public class ArrayChallange {
+        public static void main(String[] args) {
+            int[] mylist = getIntegers();
+            System.out.println("Printing the unsorted array:");
+            printArray(mylist);
+            System.out.println("Printing sorted array");
+            int[] mylistSorted = sortIntegers(mylist);
+            printArray(mylistSorted);
+    
+        }
+        public static int[] sortIntegers(int[] array){
+            Arrays.sort(array);
+            return array;
+    
+        }
+        public static void printArray(int[] array){
+            for (int i = 0; i < array.length; i++) {
+                System.out.println("Element " + i + " of the array is: " + array[i]);
+            }
+        }
+    
+        public static int[] getIntegers(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter the number of integers you want to input: ");
+            int numberofInteger = scanner.nextInt();
+            int[] inputArray = new int[numberofInteger];
+            for (int i = 0; i < numberofInteger; i++) {
+                System.out.println("Enter the element - " + (i+1) + "  : ");
+                inputArray[i] = scanner.nextInt();
+            }
+            return inputArray;
+        }
+    }
+    
+</code>
+</pre>
+</div>
+<h6>Sample Output</h6>
+<div class="container bg-dark">
+<pre>
+<code class="text-info">
+    Enter the number of integers you want to input: 
+    5
+    Enter the element - 1  : 
+    10
+    Enter the element - 2  : 
+    16
+    Enter the element - 3  : 
+    2
+    Enter the element - 4  : 
+    13
+    Enter the element - 5  : 
+    1
+    Printing the unsorted array:
+    Element 0 of the array is: 10
+    Element 1 of the array is: 16
+    Element 2 of the array is: 2
+    Element 3 of the array is: 13
+    Element 4 of the array is: 1
+    Printing sorted array
+    Element 0 of the array is: 1
+    Element 1 of the array is: 2
+    Element 2 of the array is: 10
+    Element 3 of the array is: 13
+    Element 4 of the array is: 16
+    
+    Process finished with exit code 0
+</code>
+</pre>
+</div>
+
+
+
+<h5>Array Properties: </h5>
+<p>
+    <ul>
+        <li>An array is a data structure that allows you to store multiple values of the same type into a single variable.</li>
+        <li>The default values of numeric array elements are set to zero.</li>
+        <li>If we try to access index that is out of range Java will give us an ArrayIndexOutofBoundsException, which indicates that the index is out of range in other words out of bounds.</li>
+        <li>For boolean array elements they would be initialized to false.</li>
+            
+        <li>ArrayName.length returns the length of the array.</li>
+    </ul>
+</p>
+	
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>		
