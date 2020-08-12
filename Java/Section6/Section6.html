@@ -331,7 +331,334 @@ location and as a result the original array won't update.)
 </pre>
 
 </div>
+<h5>Reversing an Array</h5>
+<div class="container bg-dark">
+<pre>
+<code class="text-info">
+    import java.util.Arrays;
 
+    public class ReverseArrayChallenge {
+        public static void main(String[] args) {
+            System.out.println("Taking an array as input:");
+            int[] array = new int[] {5,6,7,8,9,11,7};
+            System.out.println("Array: " + Arrays.toString(array));
+            System.out.println("Reversing the array");
+            reverse(array);
+            System.out.println("Array: " + Arrays.toString(array));
+    
+    
+    
+        }
+        private static void reverse(int[] array){
+            int[] temporaryArray = new int[array.length];
+            for (int i = 0; i < array.length; i++) {
+                temporaryArray[i] = array[array.length-1-i];
+            }
+            for (int i = 0; i < temporaryArray.length; i++) {
+                array[i] = temporaryArray[i];
+            }
+        }
+    }
+
+
+</code>
+
+</pre>
+<h6 class="text-light">Output: </h6>
+<pre>
+<code class="text-info">
+    Taking an array as input:
+    Array: [5, 6, 7, 8, 9, 11, 7]
+    Reversing the array
+    Array: [7, 11, 9, 8, 7, 6, 5]
+    
+    Process finished with exit code 0
+</code>    
+</pre>
+
+</div>
+
+<h5>Resizing an Array: </h5>
+<div class="container bg-dark">
+<pre>
+<code class="text-info">
+    import java.util.Arrays;
+    import java.util.Scanner;
+    
+    public class ResizeArray {
+        private static Scanner scanner = new Scanner(System.in);
+        public static void main(String[] args) {
+            System.out.println("We will resize array here (we will be increasing the size only not decreasing): ");
+            System.out.println("Enter your base array size: ");
+            int baseCount = scanner.nextInt();
+            int[] baseArray = getIntegers(baseCount);
+            System.out.println("Original Array: " + Arrays.toString(baseArray));
+            System.out.println("Enter the resized array length: ");
+            int resizedlength = scanner.nextInt();
+            int[] resizedArray = new int[resizedlength];
+            for (int i = 0; i < baseArray.length; i++) {
+                resizedArray[i] = baseArray[i];
+            }
+            for (int i = baseArray.length; i < resizedArray.length; i++) {
+                System.out.println("Enter element - " + (i+1) + " : ");
+                resizedArray[i] = scanner.nextInt();
+            }
+            baseArray = new int[resizedlength];
+            for (int i = 0; i < resizedArray.length; i++) {
+                baseArray[i] = resizedArray[i];
+            }
+            System.out.println("Updated Array: " + Arrays.toString(baseArray));
+        }
+    
+        private static int[] getIntegers(int numberofInteger){
+    
+            System.out.println("Enter the number of integers you want to input: ");
+    
+            int[] inputArray = new int[numberofInteger];
+            for (int i = 0; i < numberofInteger; i++) {
+                System.out.println("Enter the element - " + (i+1) + "  : ");
+                inputArray[i] = scanner.nextInt();
+            }
+            return inputArray;
+        }
+    }
+    
+
+
+</code>
+
+</pre>
+<h6 class="text-light">Output: </h6>
+<pre>
+<code class="text-info">
+    We will resize array here (we will be increasing the size only not decreasing): 
+    Enter your base array size: 
+    5
+    Enter the number of integers you want to input: 
+    Enter the element - 1  : 
+    10
+    Enter the element - 2  : 
+    9
+    Enter the element - 3  : 
+    78
+    Enter the element - 4  : 
+    3
+    Enter the element - 5  : 
+    11
+    Original Array: [10, 9, 78, 3, 11]
+    Enter the resized array length: 
+    7
+    Enter element - 6 : 
+    89
+    Enter element - 7 : 
+    78
+    Updated Array: [10, 9, 78, 3, 11, 89, 78]
+    
+    Process finished with exit code 0
+    
+</code>    
+</pre>
+</div>
+
+<h5>Array List: </h5>
+<p>
+    Resizable-array implementation of the List interface. Implements all optional list operations, and permits all elements, including null. In addition to implementing the List interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to Vector, except that it is unsynchronized.)
+
+The size, isEmpty, get, set, iterator, and listIterator operations run in constant time. The add operation runs in amortized constant time, that is, adding n elements requires O(n) time. All of the other operations run in linear time (roughly speaking). The constant factor is low compared to that for the LinkedList implementation.
+
+Each ArrayList instance has a capacity. The capacity is the size of the array used to store the elements in the list. It is always at least as large as the list size. As elements are added to an ArrayList, its capacity grows automatically. The details of the growth policy are not specified beyond the fact that adding an element has constant amortized time cost.
+
+An application can increase the capacity of an ArrayList instance before adding a large number of elements using the ensureCapacity operation. This may reduce the amount of incremental reallocation. 
+</p>
+
+<h5>Array List Example: </h5>
+<div class="container bg-dark">
+<pre>
+<code class = "text-info">
+    import java.util.ArrayList;
+
+    public class GroceryList {
+    
+        private ArrayList<String> groceryList = new ArrayList<String>();
+        public void addGroceryItem(String item){
+            groceryList.add(item);
+        }
+        public void printGrocerylist(){
+            System.out.println("You have " + groceryList.size() + " items in your grocery list");
+            for (int i = 0; i <groceryList.size() ; i++) {
+                System.out.println("Element #" + (i+1) + " : " + groceryList.get(i));
+            }
+        }
+        public void modifyGroceryItem(int position , String newItem){
+            groceryList.set(position,newItem);
+            System.out.println("Item #" + (position+1) + " has been modified" );
+        }
+        public void removeGroceryItem(int position){
+            String theItem = groceryList.get(position);
+            groceryList.remove(position);
+            System.out.println("We have removed " + theItem);
+        }
+    
+        public String findItem(String SearchItem){
+            //boolean exists = groceryList.contains(SearchItem);
+            int position = groceryList.indexOf(SearchItem);
+            if (position >= 0){
+                return groceryList.get(position);
+            }
+            return null;
+        }
+    }
+
+</code>
+
+
+
+
+</pre>
+<h6 class="text-light"> Main function: </h6>
+<pre>
+<code class="text-info">
+    import java.util.Scanner;
+
+    public class Main {
+        private static Scanner scanner = new Scanner(System.in);
+        private static GroceryList groceryList = new GroceryList();
+        public static void main(String[] args) {
+    
+        boolean quit = false;
+        int choice = 0;
+        printInstructions();
+        while(quit == false){
+            System.out.println("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice){
+                case 0:
+                    printInstructions();
+                    break;
+                case 1:
+                    groceryList.printGrocerylist();
+                    break;
+                case 2:
+                    System.out.println("Enter the item you want to add: ");
+                    String item = scanner.nextLine();
+                    groceryList.addGroceryItem(item);
+                    break;
+                case 3:
+                    System.out.println("Enter the position you want to modify: ");
+                    int position = scanner.nextInt();
+                    System.out.println("Enter the new item: ");
+                    scanner.nextLine();
+                    String newItem = scanner.nextLine();
+                    groceryList.modifyGroceryItem(position,newItem);
+                    break;
+                case 4:
+                    System.out.println("Enter the position of the item you want to remove: ");
+                    position = scanner.nextInt();
+                    groceryList.removeGroceryItem(position);
+                    break;
+                case 5:
+                    System.out.println("Enter the item you want to search: ");
+                    item = scanner.nextLine();
+                    System.out.println(groceryList.findItem(item));
+                    break;
+                case 6:
+                    quit = true;
+                    break;
+    
+    
+            }
+        }
+    
+    
+    
+        }
+    
+        public static void printInstructions(){
+            System.out.println("Press: ");
+            System.out.println("0 - to print choice options.");
+            System.out.println("1 - to print all the items");
+            System.out.println("2 - to add a new item.");
+            System.out.println("3 - to modify a position");
+    
+            System.out.println("4 - to remove an item from a particular position");
+            System.out.println("5 - to search for an item in the list.");
+            System.out.println("6 - to quit application.");
+        }
+        public static void printArray(int[] array){
+            for (int i = 0; i < array.length; i++) {
+                System.out.println("Element " + i + ", value is "+ array[i]);
+            }
+        }
+    }
+</code>    
+</pre>
+<h6 class="text-light">Output: </h6>
+<pre>
+<code class="text-info">
+    Press: 
+    0 - to print choice options.
+    1 - to print all the items
+    2 - to add a new item.
+    3 - to modify a position
+    4 - to remove an item from a particular position
+    5 - to search for an item in the list.
+    6 - to quit application.
+    Enter your choice: 
+    2
+    Enter the item you want to add: 
+    milk
+    Enter your choice: 
+    2
+    Enter the item you want to add: 
+    tea
+    Enter your choice: 
+    3
+    Enter the position you want to modify: 
+    1
+    Enter the new item: 
+    egg
+    Item #2 has been modified
+    Enter your choice: 
+    2
+    Enter the item you want to add: 
+    pen
+    Enter your choice: 
+    1
+    You have 3 items in your grocery list
+    Element #1 : milk
+    Element #2 : egg
+    Element #3 : pen
+    Enter your choice: 
+    2
+    Enter the item you want to add: 
+    tea
+    Enter your choice: 
+    1
+    You have 4 items in your grocery list
+    Element #1 : milk
+    Element #2 : egg
+    Element #3 : pen
+    Element #4 : tea
+    Enter your choice: 
+    4
+    Enter the position of the item you want to remove: 
+    3
+    We have removed tea
+    Enter your choice: 
+    5
+    Enter the item you want to search: 
+    pen
+    pen
+    Enter your choice: 
+    6
+    
+    Process finished with exit code 0
+
+
+</code>    
+</pre>
+</div>
 
 <h5>Array Properties: </h5>
 <p>
