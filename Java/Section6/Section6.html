@@ -479,13 +479,13 @@ An application can increase the capacity of an ArrayList instance before adding 
 
     public class GroceryList {
     
-        private ArrayList<String> groceryList = new ArrayList<String>();
+        private ArrayList< String > groceryList = new ArrayList< String >();
         public void addGroceryItem(String item){
             groceryList.add(item);
         }
         public void printGrocerylist(){
             System.out.println("You have " + groceryList.size() + " items in your grocery list");
-            for (int i = 0; i <groceryList.size() ; i++) {
+            for (int i = 0; i < groceryList.size() ; i++) {
                 System.out.println("Element #" + (i+1) + " : " + groceryList.get(i));
             }
         }
@@ -659,6 +659,191 @@ An application can increase the capacity of an ArrayList instance before adding 
 </code>    
 </pre>
 </div>
+
+<h3>AutoBoxing and Unboxing: </h3>
+<div class="container bg-dark">
+<pre>
+<h6 class="text-light">Customer</h6>    
+<code class="text-info">
+    import java.util.ArrayList;
+
+    public class Customer {
+        private String name;
+        private ArrayList< Double> transactions = new ArrayList< Double>();
+    
+        public Customer(String name, ArrayList< Double> transactions) {
+            this.name = name;
+            this.transactions = transactions;
+        }
+    
+        public String getName() {
+            return name;
+        }
+    
+        public void setName(String name) {
+            this.name = name;
+        }
+    
+        public ArrayList< Double> getTransactions() {
+            return transactions;
+        }
+    
+        public void setTransactions(ArrayList< Double> transactions) {
+            this.transactions = transactions;
+        }
+    }
+    
+</code>
+    
+</pre>
+<pre>
+<h6 class="text-light"> Branch</h6>    
+<code class="text-info">
+    import java.util.ArrayList;
+
+public class Branch {
+    private String name;
+    private ArrayList< Customer> customerArrayList = new ArrayList< Customer>();
+
+    public Branch(ArrayList< Customer> customerArrayList) {
+        this.customerArrayList = customerArrayList;
+    }
+    public Branch createBranch(ArrayList< Customer> newArray){
+        this.customerArrayList = newArray;
+        return new Branch(newArray);
+    }
+    public void AddTransaction(Customer customer, double value) {
+        if (value < 0 || !findCustomer(customer)) {
+            System.out.println("Invalid Transactions");
+        } else {
+            customer.getTransactions().add(value);
+            System.out.println("Transaction Successful! ");
+
+        }
+    }
+
+    private boolean findCustomer(Customer customer){
+        for (int i = 0; i < customerArrayList.size(); i++) {
+            if (customerArrayList.get(i) == customer){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Branch() {
+    }
+
+    public ArrayList< Customer> getCustomerArrayList() {
+        return customerArrayList;
+    }
+}
+
+</code>
+        
+</pre>
+<pre>
+<h6 class="text-light">Bank</h6>    
+<code class="text-info">
+    import java.util.ArrayList;
+
+public class Bank {
+    private String name;
+    private ArrayList< Branch> branchArrayList = new ArrayList< Branch>();
+
+    public Bank(ArrayList< Branch> branchArrayList) {
+        this.branchArrayList = branchArrayList;
+    }
+
+    public Bank createBank(ArrayList< Branch> branchlist){
+        return new Bank(branchlist);
+    }
+
+    public void CustomerList(Branch branch){
+        for (int i = 0; i < branch.getCustomerArrayList().size(); i++) {
+            System.out.println("Customer: " + branch.getCustomerArrayList().get(i).getName());
+        }
+    }
+}
+
+</code>
+        
+</pre>
+
+<pre>
+<h6 class="text-light">Main</h6>    
+<code class="text-info">
+    import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        ArrayList< Double> transaction1 = new ArrayList< Double>();
+        ArrayList< Double> transaction2 = new ArrayList< Double>();
+        ArrayList< Double> transaction3 = new ArrayList< Double>();
+        transaction1.add(332.89);
+        transaction1.add(789.21);
+        transaction1.add(796.32);
+        transaction2.add(332.89);
+        transaction2.add(789.21);
+        transaction2.add(796.32);
+        transaction3.add(332.89);
+        transaction3.add(789.21);
+        transaction3.add(796.32);
+
+        Customer rick = new Customer("Rick", transaction1);
+        Customer riya = new Customer("Riya", transaction2);
+        Customer bhuto = new Customer("Bhuto", transaction3);
+        ArrayList< Customer> CustomerList1 = new ArrayList< Customer>();
+        CustomerList1.add(rick);
+        CustomerList1.add(riya);
+        ArrayList< Customer> CustomerList2= new ArrayList< Customer>();
+        CustomerList2.add(bhuto);
+        
+        Branch Kolkata = new Branch();
+        Branch KolkataNew = Kolkata.createBranch(CustomerList1);
+        Branch Delhi = new Branch();
+        Branch DelhiNew = Delhi.createBranch(CustomerList2);
+        System.out.println("Adding new transaction: ");
+        KolkataNew.AddTransaction(rick,786);
+        KolkataNew.AddTransaction(bhuto,-985);
+        ArrayList< Branch> branchArrayList = new ArrayList< Branch>();
+        branchArrayList.add(KolkataNew);
+        branchArrayList.add(DelhiNew);
+        Bank SBI = new Bank(branchArrayList);
+
+        System.out.println("Customer List");
+        SBI.CustomerList(KolkataNew);
+        SBI.CustomerList(DelhiNew);
+        
+        
+    }
+}
+
+</code>
+        
+</pre>
+
+<pre>
+<h6 class="text-light">Output: </h6>    
+<code class="text-info">
+Adding new transaction: 
+Transaction Successful! 
+Invalid Transactions
+Customer List
+Customer: Rick
+Customer: Riya
+Customer: Bhuto
+
+Process finished with exit code 0
+    
+</code>
+        
+</pre>
+
+</div>
+
 
 <h5>Array Properties: </h5>
 <p>
