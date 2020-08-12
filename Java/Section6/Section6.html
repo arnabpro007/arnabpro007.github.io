@@ -184,7 +184,153 @@ Process finished with exit code 0
 </code>
 </pre>
 </div>
+<h5>Reference Types and Value Types Illustration: </h5>
+<p>
+If you check this code you will find that arrays are reference type,i.e. variables hold the address not the value itself. For primitive datatypes variables store the actual value. <strong>Another
+    very important observation is if we use modifyArray function then only the first position will update.
+</strong> Reason for that is, when we use new command we are actually de-referencing (i.e. we are not changing the original arrray but re-directing the pointer to a different 
+location and as a result the original array won't update.)
+<div class="container bg-dark">
+<pre>
+<code class="text-info">
+    import java.util.Arrays;
 
+    public class ReferencesvsValueType {
+        public static void main(String[] args) {
+            int myintValue = 10;
+            int anotherintValue = myintValue;
+            System.out.println("myintValue = " + myintValue);
+            System.out.println("anotherintValue = "+ anotherintValue);
+            anotherintValue ++;
+            System.out.println("myintValue = " + myintValue);
+            System.out.println("anotherintValue = "+ anotherintValue);
+    
+            int[] myIntArray = new int[5];
+            int[] anotherIntArray = myIntArray;
+            for (int i = 0; i < myIntArray.length; i++) {
+                myIntArray[i] = i*10;
+            }
+            /*System.out.println("myIntArray: ");
+            printArray(myIntArray);
+            System.out.println("anotherIntArray: ");
+            printArray(anotherIntArray);*/
+            System.out.println("myIntArray: " + Arrays.toString(myIntArray));
+    
+            //printArray(myIntArray);
+            System.out.println("anotherIntArray: " + Arrays.toString(anotherIntArray));
+    
+            anotherIntArray[4] = -40;
+            System.out.println("Updated 5-th element to be -40");
+            System.out.println("myIntArray: " + Arrays.toString(myIntArray));
+    
+            //printArray(myIntArray);
+            System.out.println("anotherIntArray: " + Arrays.toString(anotherIntArray));
+            //printArray(anotherIntArray);
+        }
+        private static void modifyArray(int[] array){
+            array[0] = 2;
+            array = new int[] {1,2,3,4,5};
+        }
+    }    
+
+
+</code>
+
+
+
+</pre>
+<h6 class="text-light">Output: </h6>
+<pre>
+<code class="text-info">
+    myintValue = 10
+    anotherintValue = 10
+    myintValue = 10
+    anotherintValue = 11
+    myIntArray: [0, 10, 20, 30, 40]
+    anotherIntArray: [0, 10, 20, 30, 40]
+    Updated 5-th element to be -40
+    myIntArray: [0, 10, 20, 30, -40]
+    anotherIntArray: [0, 10, 20, 30, -40]
+    
+    Process finished with exit code 0
+    
+
+
+</code>
+</pre>
+</div>
+
+
+</p>
+
+<h5>How to find minimum element from an array: </h5>
+<div class="container bg-dark">
+<pre>
+<code class="text-info">
+    import java.util.Scanner;
+
+    public class MinElementChallange {
+        private static Scanner scanner = new Scanner(System.in);
+        public static void main(String[] args) {
+            
+            System.out.println("Enter number of integers you want to input: ");
+            int count = scanner.nextInt();
+            int[] array = readIntegers(count);
+            int min = findmin(array);
+            System.out.println("Minimum element of the array is: " + min);
+        }
+    
+        //ReadIntegers:
+        private static int[] readIntegers(int count){
+            
+            System.out.println("Start Entering " + count + " numbers");
+            int[] array = new int[count];
+            for (int i = 0; i < count ; i++) {
+                System.out.println("Enter #" + (i+1) + " : ");
+                array[i] = scanner.nextInt();
+            }
+            return array;
+        }
+    
+        //FindMin:
+        private static int findmin(int[] array){
+            int temp = array[0];
+            int i = 0;
+            while(i < array.length){
+                if (array[i]< temp){
+                    temp = array[i];
+                }
+                i++;
+            }
+            return temp;
+        }
+    }
+    
+</code>   
+</pre>
+<h6 class="text-light">Output:</h6>
+<pre>
+<code class="text-info">
+    Enter number of integers you want to input: 
+    5
+    Start Entering 5 numbers
+    Enter #1 : 
+    -10
+    Enter #2 : 
+    35
+    Enter #3 : 
+    -200
+    Enter #4 : 
+    105
+    Enter #5 : 
+    109
+    Minimum element of the array is: -200
+    
+    Process finished with exit code 0    
+</code>    
+</pre>
+
+</div>
 
 
 <h5>Array Properties: </h5>
