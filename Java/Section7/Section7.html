@@ -16,10 +16,321 @@
 <h3>Inner and Abstract Classes and Interfaces</h3>
 <p>This is the HTML description file of Inner and Abstract Classes and Interfaces. For code check the github repo.</p>
 
+<p>An interface in the Java programming language is an abstract type that is used to specify a behavior that classes must implement.
+    They are similar to protocols. Interfaces are declared using the interface keyword, and may only contain method signature and constant declarations (variable declarations that
+    are declared to be both static and final). All methods of an Interface do not contain implementation (method bodies) as of all versions below Java 8. Starting with Java 8, default and
+    static methods may have implementation in the interface definition.Then, in Java 9, private and private static methods were added. At present, a Java interface can have up to six different types.
+    Interfaces cannot be instantiated, but rather are implemented. A class that implements an interface must implement all of the non-default methods described in the interface, or be an abstract class.
+    Object references in Java may be specified to be of an interface type; in each case, they must either be null, or be bound to an object that implements the interface.
+    One benefit of using interfaces is that they simulate multiple inheritance. All classes in Java must have exactly one base class, the only exception being java.lang.Object (the root class of the
+    Java type system); multiple inheritance of classes is not allowed. However, an interface may inherit multiple interfaces and a class may implement multiple interfaces. A point to remember
+    is a class can inherit only one class but can inherit more than one interfaces. </p>
+
+<h5>Example: </h5>
+<div class = "container bg-dark">
+<pre>
+<code class = "text-info">
+public interface ITelephone {
+    public void PowerOn();
+    public void dial(int phoneNumber);
+    public void answer();
+    public boolean callPhone(int phoneNumber);
+    public boolean isRinging();
+
+}
+public class DeskPhone implements ITelephone{
+    private int myNumber;
+    private boolean isRinging;
+
+    @Override
+    public void PowerOn() {
+        System.out.println("No action taken, desk phone does not have a power button");
+
+    }
+
+    @Override
+    public void dial(int phoneNumber) {
+        System.out.println("Now ringing " + phoneNumber + " on desk phone");
+    }
+
+    @Override
+    public void answer() {
+        if(isRinging){
+            System.out.println("Answering the desk phone");
+            isRinging = false;
+        }
+    }
+
+    @Override
+    public boolean callPhone(int phoneNumber) {
+        if(phoneNumber == myNumber){
+            isRinging = true;
+            System.out.println("Ring Ring");
+        }else {
+            isRinging =  false;
+        }
+        return isRinging;
+    }
+
+    @Override
+    public boolean isRinging() {
+        return isRinging;
+    }
+
+    public DeskPhone(int myNumber) {
+        this.myNumber = myNumber;
+    }
+}
+
+package com.company;
+
+public class MobilePhone implements ITelephone{
+    private int myNumber;
+    private boolean isRinging;
+    private boolean isOn = false;
+    @Override
+    public void PowerOn() {
+        isOn = true;
+        System.out.println("Mobile Phone Powered Up");
+
+    }
+
+    @Override
+    public void dial(int phoneNumber) {
+        if (isOn) {
+            System.out.println("Now ringing " + phoneNumber + " on mobile phone");
+
+        }else{
+            System.out.println("Switched off");
+        }
+    }
+    @Override
+    public void answer() {
+        if(isRinging){
+            System.out.println("Answering the desk phone");
+            isRinging = false;
+        }
+    }
+
+    @Override
+    public boolean callPhone(int phoneNumber) {
+        if(phoneNumber == myNumber && isOn){
+            isRinging = true;
+            System.out.println("Melody Playing");
+        }else {
+            isRinging =  false;
+            System.out.println("Mobile phone not on or number different");
+        }
+        return isRinging;
+    }
+
+    @Override
+    public boolean isRinging() {
+        return isRinging;
+    }
+
+    public MobilePhone(int myNumber) {
+        this.myNumber = myNumber;
+    }
+}
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        ITelephone ArnabPhone;
+        ArnabPhone = new DeskPhone(1235);
+        ArnabPhone.PowerOn();
+        ArnabPhone.answer();
+        ArnabPhone.dial(123);
+        ArnabPhone.callPhone(1235);
+        ArnabPhone.isRinging();
+
+        System.out.println("===============");
+        ArnabPhone = new MobilePhone(7777);
+        ArnabPhone.callPhone(00000);
+        ArnabPhone.answer();
+        ArnabPhone.dial(111);
+        ArnabPhone.PowerOn();
+        ArnabPhone.callPhone(7777);
+        ArnabPhone.dial(111);
+        ArnabPhone.answer();
+
+    }
+}
+
+</code>
+</pre>
+<h6 class="text-light">Output: </h6>
+<pre>
+<code class="text-info">
+No action taken, desk phone does not have a power button
+Now ringing 123 on desk phone
+Ring Ring
+===============
+Mobile phone not on or number different
+Switched off
+Mobile Phone Powered Up
+Melody Playing
+Now ringing 111 on mobile phone
+Answering the desk phone
+
+Process finished with exit code 0
+
+</code>
+</pre>
+</div>
+
+<h3>Inner Class: </h3>
+<p>It is possible to next a class inside another class. There are four types of nested class: static nested class, non-static nested class, local class (an inner class that's defined inside of a scope)
+and an anonymous class (a nested class without a class name). A static nested class is used to associate a class with its outer class. It can not access non static members of the outer class without
+    creating an instance first.
+</p>
+<div class="container bg-dark">
+<pre>
+<code class="text-info">
+import java.util.ArrayList;
+
+public class GearBox {
+    private ArrayList< Gear> gears;
+    private int maxGears;
+    private int CurrentGear = 0;
+
+    public GearBox(int maxGears){
+        this.maxGears = maxGears;
+        this.gears = new ArrayList< Gear>();
+        Gear neutral = new Gear(0,0.0);
+        this.gears.add(neutral);
+    }
+
+    public class Gear{
+        private int gearNumber;
+        private double ratio;
+
+        public Gear(int gearNumber, double ratio) {
+            this.gearNumber = gearNumber;
+            this.ratio = ratio;
+        }
+
+        public double driveSpeed(int revs){
+            return revs*(this.ratio);
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+    GearBox maruti = new GearBox(5);
+        GearBox.Gear first = maruti.new Gear(1,12.3);
+        System.out.println(first.driveSpeed(1000));
+    }
+
+}
+
+</code>
+</pre>
+</div>
+
+<h5>Local Inner Class: </h5>
+<div class="bg-dark">
+<code class="text-info">
+    public class Button {
+    private String title;
+    private OnClickListener onClickListener;
+
+    public Button(String title) {
+    this.title = title;
+    }
+
+    public String getTitle() {
+    return title;
+    }
+
+    public void setOnClickListener(OnClickListener onClickListener){
+    this.onClickListener = onClickListener;
+    }
+    public void onClick(){
+    this.onClickListener.onClick(this.title);
+    }
+    public interface OnClickListener{
+    public void onClick(String title);
+    }
+    }
+    public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+    private static Button btnPrnt = new Button("Print");
+    public static void main(String[] args) {
+    // write your code here
 
 
+    class ClickListener implements Button.OnClickListener{
+    public ClickListener(){
+    System.out.println("I've been attached");
+    }
 
+    @Override
+    public void onClick(String title) {
+    System.out.println(title + " was clicked");
+    }
+    }
+    btnPrnt.setOnClickListener(new ClickListener());
+    Listen();
+    }
+    private static void Listen(){
+    boolean quit = false;
+    while(!quit){
+    int choice = scanner.nextInt();
+    scanner.nextLine();
+    switch (choice){
+    case 0:
+    quit = true;
+    break;
+    case 1:
+    btnPrnt.onClick();
+    }
+    }
+    }
+    }
+</code>
+</div>
 
+<h5>Anonymous Inner Class: </h5>
+<div class="bg-dark">
+<pre>
+<code class = "text-info">
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+    btnPrnt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(String title) {
+                System.out.println(title + " wins!");
+            }
+        });
+        Listen();
+    }
+    private static void Listen(){
+        boolean quit = false;
+        while(!quit){
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice){
+                case 0:
+                    quit = true;
+                    break;
+                case 1:
+                    btnPrnt.onClick();
+            }
+        }
+    }
+}
+</code>
+</pre>
+</div>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

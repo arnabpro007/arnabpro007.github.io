@@ -1,3 +1,5 @@
+package com.company;
+
 public interface ITelephone {
     public void PowerOn();
     public void dial(int phoneNumber);
