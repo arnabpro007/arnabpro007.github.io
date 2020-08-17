@@ -331,6 +331,129 @@ public class Main {
 </code>
 </pre>
 </div>
+
+
+<h3>Abstract Class: </h3>
+<p>Abstraction is when we define functionality without actually implementing it. In other words we want to deal with what needs to be done not how. One example of abstraction class is 
+    interface. But there is a difference. We can instantiate and abstract class but not an interface. Abstract class can define a new method but in interface all methods are abstract.
+    
+</p>
+
+<h4>Example: </h4>
+<div class="container bg-dark">
+<pre>
+<code class = "text-info">
+    public abstract class Animal {
+        private String name;
+    
+        public Animal(String name) {
+            this.name = name;
+        }
+        public abstract void eat();
+        public abstract void breathe();
+    
+        public String getName(){
+            return name;
+        }
+    }
+    
+    public abstract class Bird extends Animal{
+        public Bird(String name) {
+            super(name);
+        }
+    
+        @Override
+        public void eat() {
+            System.out.println(getName() + " is pecking");
+        }
+    
+        @Override
+        public void breathe() {
+            System.out.println(getName() + " is breathing");
+        }
+    
+        public abstract void fly();
+    }
+
+    public class Parrot extends Bird {
+        public Parrot(String name) {
+            super(name);
+        }
+    
+        @Override
+        public void fly() {
+            System.out.println("Flitting from branch to branch");
+        }
+    }
+
+    public class Penguin extends Bird {
+
+        public Penguin(String name) {
+            super(name);
+        }
+    
+        @Override
+        public void fly() {
+            System.out.println("I can't fly!!");
+        }
+    }
+
+    public class Dog extends Animal {
+
+        public Dog(String name) {
+            super(name);
+        }
+    
+        @Override
+        public void eat() {
+            System.out.println(getName() + " is eating");
+        }
+    
+        @Override
+        public void breathe() {
+            System.out.println(getName() + " is breathing");
+        }
+    
+    
+    }
+
+    public class Main {
+
+        public static void main(String[] args) {
+        // write your code here
+            Dog dog = new Dog("Rex");
+            dog.eat();
+            dog.breathe();
+    
+            Parrot bird = new Parrot("Indian Parrot");
+            bird.eat();
+            bird.breathe();
+            bird.fly();
+    
+            Penguin penguin = new Penguin("emperor");
+            penguin.fly();
+        }
+    }
+    
+</code>    
+</pre> 
+
+<h5 class="text-light">Output</h5>
+<pre>
+<code class="text-info">
+    Rex is eating
+    Rex is breathing
+    Indian Parrot is pecking
+    Indian Parrot is breathing
+    Flitting from branch to branch
+    I can't fly!!
+
+    Process finished with exit code 0
+
+</code>    
+</pre>
+</div>
+
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
