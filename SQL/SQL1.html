@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>SQL for Data Science</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">SQL for Data Science</span>
+    </nav>
+    <h3>What is SQL? </h3>
+    <p>Structured Query Language is a standard computer language for relational database management and data manipulation. It is used to query, insert, update and modify data. Statments
+        are made up of descriptive words (hence it is extrememly easy to learn). On the flipside, SQL is a non procedural language , i.e. it cannot be used to write complete applications.
+        
+        SQL is used by Data Scientists to primarily read/retrieve data, write data and update data. 
+    </p>
+
+    <h3>Data Models: </h3>
+    <p>
+        <ul>
+            <li>To understand the business process or subject matter the data is modeled after.</li>
+            <li>To know the business rules</li>
+            <li>Understand how your data is organized and structured in the table.</li>
+        </ul>
+
+        Data Models are made up of database and tables. Database is a container to store organized data. Tables are a structured list of data. <br>
+        Data models are used to 
+        <ul>
+            <li>Organize and structure information into multiple related tables.</li>
+            <li>can represent the business process or show relationships between business processes</li>
+            <li>should closely represent real world.</li>
+        </ul>
+        <h5>Types of Data Models: </h5>
+        <ol>
+            <li>Hierarchical Model</li>
+            <li>Network Model</li>
+            <li>Relational Model</li>
+            <li>Entity relationship Model</li>
+            <li>Semantic Model</li>
+            <li>Object Oriented Model</li>
+            <li>Extended Relational Model</li>
+            <li>NoSQL Model</li>
+        </ol>
+
+    </p>
+
+    <h3>Some Terminologies: </h3>
+    <p>
+        <b>Relational Model: </b> The relational model (RM) for database management is an approach to managing data using a structure and language consistent with first-order predicate 
+        logic, first described in 1969 by English computer scientist Edgar F. Codd, where all data is represented in terms of tuples, grouped into relations. A database organized in 
+        terms of the relational model is a relational database.
+
+        The purpose of the relational model is to provide a declarative method for specifying data and queries: users directly state what information the database contains and what
+         information they want from it, and let the database management system software take care of describing data structures for storing the data and retrieval procedures for 
+         answering queries.<br>
+        <b>Transactional Model: </b> Transactional model, generally speaking, refers to a model in which interactions in two directions are considered together, for example from one 
+        person to another and back, or from one subsystem to another and back. <br>
+        <b>Entity: </b> Person , place or event. It must be distinguishable , unique and distinct.
+        <br>
+        <b>Attribute: </b>A charecteristic of an Entity. <br>
+        <b>Relationship: </b> Describes association among entities. Can be of 3 types: one to many , many to many and one to one. <br>
+        <b>ER Diagrams: </b> ER model is composed of entity tpes and specifies relationships that can exist between instances of those entity types. <br>
+        <div class="container"><img src="https://i.imgur.com/QsUxp3L.png" alt="#" width="1000" height="500"> </div>
+        <b>Primary Key: </b>A column or set of columns whose values uniquely identify every row in a table.
+        <br>
+        <b>Foreign Key: </b>One or more columns that can be used together to identify a single row in another table. 
+
+        
+    </p>
+
+    <h3>Codes: </h3>
+    <div class="container">
+    <h5>Retrieving Data with Select Statments</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        SELECT prod_name, prod_id, prod_price
+        FROM Products;
+        </code>
+        </pre>
+    </div>
+    <h5>Requesting All the Columns:</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        SELECT *
+        FROM Products
+        </code>
+        </pre>
+    </div>
+
+    <h5>Limit Data</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        SELECT Columns you wish to see
+        FROM Specific Table
+        LIMIT Number of Records
+        </code>
+        </pre>
+    </div>
+
+    <h5>Create Tables:</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        CREATE TABLE Shoes
+        (
+            Id char(10) Primary Key,
+            Type char(250) Not NULL,
+            Price Decimal(8,2) Not NULL
+        );
+        </code>
+        </pre>
+    </div>
+    <h5>Inserting Values:</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        INSERT INTO Shoes
+        (
+            Id,
+            Brand,
+            Price
+
+        )
+        VALUES("E362","GUCCI",36.56)
+        </code>
+        </pre>
+    </div>
+    <h5>Creating Temporary Table:</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        CREATE TEMPORARY TABLE Sandals AS
+        (
+            SELECT *
+            FROM Shoes
+            WHERE Shoe_type = "Sandals"
+        )
+        </code>
+        </pre>
+    </div>
+    
+
+
+</div>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
