@@ -152,7 +152,154 @@
 
 
 </div>
+<h3>Filtering, Sorting and Calculating Data: </h3>
+<p>
+    Why do we use filtering? 
+    <ul>
+        <li>to be specific about the data we want to retrieve</li>
+        <li>reduce the number of records you want to retrieve</li>
+        <li>Increase query performance</li>
+        <li>Reduce the strain on the client application</li>
+        <li>Governance limitations</li>
+    </ul>
 
+    <div class="container">
+        <h5>WHERE Clause</h5>
+    <div class="bg-dark">
+        <pre>
+        <code class = "text-info">
+        SELECT Column_name
+        FROM Table_name
+        WHERE Column_name operation;
+        </code>
+        </pre>
+    </div>
+    <table class="ui basic table">
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Description</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>=</td>
+            <td>Equal</td>
+        </tr>
+         <tr>
+             <td> <> </td>
+             <td>Not Equal</td>
+         </tr> 
+          <tr>
+              <td>></td>
+              <td>Greater than</td>
+          </tr>
+          <tr>
+              <td>< </td>
+              <td>
+                  Less Than
+              </td>
+          </tr>
+          <tr>
+              <td>>=</td>
+              <td>Greater than equals</td>
+          </tr>
+          <tr>
+              <td><=</td>
+              <td>Less Than Equals</td>
+          </tr>
+          <tr>
+              <td>BETWEEN</td>
+              <td>Between an inclusive range</td>
+          </tr>
+          <tr>
+              <td>IS NULL</td>
+              <td>Is a null value?</td>
+          </tr>
+          <tr>
+              <td>IN</td>
+              <td>Specifies a range of comditions, comma delimited list of values</td>
+          </tr>
+          <tr>
+              <td>OR</td>
+              <td>Checks for or condition</td>
+          </tr>
+          <tr>
+              <td>AND</td>
+              <td>Checks for and condition</td>
+          </tr>
+          <tr>
+              <td>NOT</td>
+              <td>Checks for everything except the condition</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+    </div>
+</p>
+<h3>WILD Cards</h3>
+<p>
+    <ul>
+        <li>Special character used to match parts of a value</li>
+        <li>Search pattern made from literal text, wildcard character or a combination</li>
+        <li>Uses LIKE as an operator</li>
+        <li>Can only be used with Strings</li>
+        <li>Cannot be used for non text datatype</li>
+        <li>"%Pizza": Grabs anything ending with pizza</li>
+        <li>"Pizza%": Grabs anything beginning with pizza </li>
+        <li>"%Pizza%": Grabs anything with pizza in between</li>
+        <li>Statement: WHERE size LIKE "%Pizza"</li>
+    </ul>
+
+</p>
+<h3>Order BY: </h3>
+<p>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT Column_name
+            FROM Table_name
+            WHERE Column_name operation
+            ORDER BY Characeteristic;
+            </code>
+            </pre>
+        </div>
+    </div>
+    <ul>
+        <li>Takes the name of one or more columns</li>
+        <li>Add a comma after each additional column name</li>
+        <li>Can sort by a column not retrieved</li>
+        <li>Must always be the last clause in a select statement</li>
+        <li>DESC: for descending order & ASC: for ascending order</li>
+        <li>Some of the aggregate function: AVG(), COUNT(),MIN(),MAX(),SUM()</li>
+        <li>COUNT(*): Counts all the rows in a table containing values or null values.</li>
+        <li>COUNT(column): Counts all the rows in a specific column ignoring NULL Values.</li>
+    </ul>
+</p>
+<h3>GROUP BY:</h3>
+<p>
+    <ul>
+        <li>Can group by multiple column</li>
+        <li>Every column in your SELECT statment must be present in a group by clause, except for aggregated calculations</li>
+        <li>NULLS will be grouped together if your group by columns contains NULLS</li>
+        <li>WHERE statement must come before grouping and HAVING must come after grouping</li>
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT customerID, Count(*) AS orders
+            FROM Orders
+            GROUP BY CustomerId
+            Having count(*) >=2
+            </code>
+            </pre>
+        </div>
+    </div>
+</p>
 
 
 
