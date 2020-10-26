@@ -301,6 +301,198 @@
     </div>
 </p>
 
+<h3>Subqueries: </h3>
+<p>
+    <ul>
+        <li>Subqueries are embedded into other queries</li>
+        <li>Subqueries merge data from multiple sources together</li>
+        <li>There is no limit to the number of subqueries you can have</li>
+        <li>Performance slows when you nest too deeply</li>
+        <li>Subquery selects can only retrieve a single column.</li>
+        
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT customerID, Count(*) AS orders
+            FROM Orders
+            WHERE customerID IN (SELECT customerID 
+            FROM Orders
+            WHERE Freight > 100)
+            </code>
+            </pre>
+        </div>
+    </div>
+</p>
+
+<h3>Joins: </h3>
+<p>
+    <ul>
+        <li>Associate correct records from each table on the fly.</li>
+        <li>Allows data retrieval from multiple tables in one query</li>
+        <li>Joins are not physical they persist for the duration of the query execution.</li>
+
+    </ul>
+    <h5>Cartesian Joins:</h5>
+    <ul>
+        <li>Each rows from the first table joins with all the rows of another table.</li>
+        <li>It is not frequently used and extrememly computationally taxing</li>
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT Product_name, unit_price, company_name
+            FROM Suppliers Cross Join Products
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Inner Joins: </h5>
+    <ul>
+        <li>The inner join keyword selects records that have matching values in both table.</li>
+        <li>Joining more tables together affects overall database performances</li>
+        <li>You can join multiple table together.</li>
+
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT Suppliers.CompanyName, Product_name, unit_price
+            FROM Suppliers INNER JOIN Products ON Suppliers.supplierid = Products.supplierid
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Self Joins: </h5>
+    <ul>
+        <li>Take the table and treat it like two separate tables.</li>
+        <li>Join the original table to itself</li>
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT A.CustomerName AS Customer1,
+            B.CustomerName AS Customer2,
+            A.City
+            FROM Customers A, Customers B
+            WHERE A.Customerid = B.Customerid 
+            AND A.City = B.City
+            ORDER BY A.City
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Left Joins: </h5>
+    <ul><li>Returns all the records from the left table and the matched record from the right table</li></ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT C.Customerid, O.orderid
+            From Customers C
+            Left JOINH Orders O on C.CustomerId = O.CustomerID
+            ORDER BY C.CustomerName
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Unions: </h5>
+    <ul>
+        <li>The union operator is used to combine the result set of two or more select statement</li>
+        <li>Each select statement within union must have the same number of columns</li>
+        <li>Columns must have similar data types</li>
+        <li>The columns in each statement must be in some order</li>
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT col1,col2,.....
+            FROM table1
+            UNION
+            SELECT col1,col2,.....
+            FROM table2
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Aliases</h5>
+    <ul>
+        <li>SQL aliases give a table or a column a temporary name</li>
+        <li>make column names more readable</li>
+        <li>An alias only exists for the duration of the query.</li>
+    </ul>
+</p>
+
+<h3>Modifying Data: </h3>
+<p>
+    <h5>Text Strings: </h5>
+    <ul>
+        <li>Concatenate: SELECT CompanyName||'('||ContactName||')'</li>
+        <li>Trim: TRIM("   YOu the best  ") AS tString</li>
+        <li>Substring: SUBSTR(String Name, String pos, number of character to be returned)</li>
+        <li>Upper and Lower: UPPER(Column_name), LOWER(Column_name)</li>
+    </ul>
+    <h5>Date Strings:</h5>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            SELECT Birthdate,
+            STRFTIME("%Y", Birthdate) AS YEAR,
+            STRFTIME("%M",Birthdate) AS MONTH,
+            STRFTIME("%D",Birthdate) AS DAY
+
+            FROM Employees
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Case Statement: </h5>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            CASE City
+            WHEN "KOLKATA" THEN 1
+            ELSE 0
+            END CityCat
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <h5>Views:</h5>
+    <ul>
+        <li>A stored query</li>
+        <li>can add or remove columns without changing the schema</li>
+        <li>Use it to encapsulate queries</li>
+        <li>The view will be removed after database connection has ended.</li>
+        
+    </ul>
+    <div class="container">
+        <div class="bg-dark">
+            <pre>
+            <code class = "text-info">
+            CREATE VIEW my_view
+            AS
+            SELECT.......
+            </code>
+            </pre>
+        </div>
+    </div>
+</p>
+
 
 
 
